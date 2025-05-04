@@ -21,7 +21,7 @@ async function PasswordCheck(password) {
         const suffix = sha1Hash.substring(5);
 
         // Step 3: Send GET request to HaveIBeenPwned with the prefix
-        const response = await axios.get(`https://api.pwnedpasswords.com/range/${prefix}`, {
+        const response = await axios.get(`${process.env.HIBP_HOST}/${prefix}`, {
             headers: {
                 'User-Agent': 'G-secure/v1.0.0 (harshlms.dev@gmail.com)' // Required by HIBP API
             }
